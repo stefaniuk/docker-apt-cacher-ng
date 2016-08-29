@@ -7,8 +7,8 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build --tag stefaniuk/debian .
-    - mkdir -p ~/docker; docker save stefaniuk/debian > ~/docker/image.tar
+    - docker build --tag stefaniuk/apt-cacher-ng .
+    - mkdir -p ~/docker; docker save stefaniuk/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
     - :
