@@ -28,7 +28,6 @@ start:
 	@docker run --tty --detach \
 		--name $(CONTAINER) \
 		--hostname $(CONTAINER) \
-		--env "APT_PROXY=$(APT_PROXY)" \
 		--volume $(shell pwd)/data:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
 		$(REPOSITORY)
