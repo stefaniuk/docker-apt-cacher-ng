@@ -1,6 +1,8 @@
 Docker Apt-Cacher NG
 ====================
 
+`Dockerfile` to create a Docker image for [Apt-Cacher NG](https://www.unix-ag.uni-kl.de/~bloch/acng/).
+
 Todo
 ----
 
