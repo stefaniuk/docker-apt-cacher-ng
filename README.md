@@ -8,6 +8,7 @@ Docker Apt-Cacher NG
 Todo
 ----
 
+- Check configuration against [this blog post](http://www.tecmint.com/apt-cache-server-in-ubuntu/)
 - Test content of the cache directory
 - Print log messages to the standard output
 - Trigger automated test
