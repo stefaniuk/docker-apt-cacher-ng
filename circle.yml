@@ -11,4 +11,4 @@ dependencies:
     - mkdir -p ~/docker; docker save stefaniuk/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - :
+    - echo "TODO"
