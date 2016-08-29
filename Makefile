@@ -25,7 +25,7 @@ push: release
 	@docker push $(REPOSITORY):$(shell cat VERSION)
 
 start:
-	@docker run --detach \
+	@docker run --tty --detach \
 		--name $(CONTAINER) \
 		--hostname $(CONTAINER) \
 		--env "APT_PROXY=$(APT_PROXY)" \
