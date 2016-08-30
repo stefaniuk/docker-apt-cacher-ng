@@ -12,7 +12,9 @@ help:
 	@echo
 	@echo "Usage:"
 	@echo
-	@echo "    make build APT_PROXY=url|release|push|start|log|bash|stop|clean|purge"
+	@echo "    make build|release|push APT_PROXY=url"
+	@echo "    make start|log|bash|stop"
+	@echo "    make clean|purge"
 	@echo
 
 build:
@@ -21,7 +23,9 @@ build:
 		--tag $(REPOSITORY) --rm .
 
 release: build
-	@docker build --tag $(REPOSITORY):$(shell cat VERSION) --rm .
+	@docker build \
+		--build-arg "APT_PROXY=$(APT_PROXY)" \
+		--tag $(REPOSITORY):$(shell cat VERSION) --rm .
 
 push: release
 	@docker push $(REPOSITORY):$(shell cat VERSION)
@@ -48,3 +52,4 @@ clean: stop
 
 purge: clean
 	@docker rmi $(REPOSITORY) > /dev/null 2>&1 ||:
+	@docker rmi $(REPOSITORY):$(shell cat VERSION) > /dev/null 2>&1 ||:
