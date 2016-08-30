@@ -12,11 +12,13 @@ help:
 	@echo
 	@echo "Usage:"
 	@echo
-	@echo "    make build|release|push|start|log|bash|stop|clean|purge"
+	@echo "    make build APT_PROXY=url|release|push|start|log|bash|stop|clean|purge"
 	@echo
 
 build:
-	@docker build --tag $(REPOSITORY) --rm .
+	@docker build \
+		--build-arg "APT_PROXY=$(APT_PROXY)" \
+		--tag $(REPOSITORY) --rm .
 
 release: build
 	@docker build --tag $(REPOSITORY):$(shell cat VERSION) --rm .

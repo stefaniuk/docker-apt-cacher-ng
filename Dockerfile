@@ -1,12 +1,13 @@
-FROM stefaniuk/ubuntu:16.04-20160829
+FROM stefaniuk/ubuntu:16.04-20160830
 MAINTAINER daniel.stefaniuk@gmail.com
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
+ARG APT_PROXY
 ENV APT_CACHER_NG_VERSION="0.9.1" \
     APT_CACHER_NG_USER="apt-cacher-ng"
 
-
 RUN set -ex \
+    && if [ -n "$APT_PROXY" ]; then echo "Acquire::http { Proxy \"$APT_PROXY\"; };" >> /etc/apt/apt.conf.d/00proxy; fi \
     && apt-get --yes update \
     && apt-get --yes install apt-cacher-ng=${APT_CACHER_NG_VERSION}* \
     && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /var/cache/apt/* \
@@ -25,7 +26,9 @@ RUN set -ex \
     \
     # SEE: https://github.com/docker/docker/issues/11462
     && ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.out \
-    && ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.err
+    && ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.err \
+    \
+    && rm -f /etc/apt/apt.conf.d/00proxy
 
 VOLUME [ "/var/cache/apt-cacher-ng" ]
 EXPOSE 3142
