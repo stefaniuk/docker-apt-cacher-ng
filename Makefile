@@ -14,7 +14,7 @@ help:
 	@echo
 	@echo "    make build|release|push APT_PROXY=url"
 	@echo "    make start|log|bash|stop"
-	@echo "    make clean|purge"
+	@echo "    make clean|prune"
 	@echo
 
 build:
@@ -50,6 +50,6 @@ stop:
 clean: stop
 	@docker rm $(CONTAINER) > /dev/null 2>&1 ||:
 
-purge: clean
+prune: clean
 	@docker rmi $(REPOSITORY) > /dev/null 2>&1 ||:
 	@docker rmi $(REPOSITORY):$(shell cat VERSION) > /dev/null 2>&1 ||:
