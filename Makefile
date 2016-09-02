@@ -31,7 +31,7 @@ push: release
 	@docker push $(REPOSITORY):$(shell cat VERSION)
 
 start:
-	@docker run --tty --detach \
+	@docker run --detach \
 		--name $(CONTAINER) \
 		--hostname $(CONTAINER) \
 		--volume $(shell pwd)/data:/var/cache/apt-cacher-ng \
