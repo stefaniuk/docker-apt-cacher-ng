@@ -1,4 +1,4 @@
-FROM stefaniuk/ubuntu:16.04-20160831
+FROM stefaniuk/ubuntu:16.04-20160901
 MAINTAINER daniel.stefaniuk@gmail.com
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
