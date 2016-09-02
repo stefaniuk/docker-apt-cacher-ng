@@ -10,5 +10,8 @@ chown -R $SYSTEM_USER:$SYSTEM_USER \
     /var/log/apt-cacher-ng
 
 # SEE: https://github.com/docker/docker/issues/6880
-ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.out
-ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.err
+#su -c "ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.out" $SYSTEM_USER
+#su -c "ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.err" $SYSTEM_USER
+
+#tail -F /var/log/apt-cacher-ng/apt-cacher.out > /dev/stdout &
+#tail -F /var/log/apt-cacher-ng/apt-cacher.err > /dev/stderr &
