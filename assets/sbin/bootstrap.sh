@@ -13,5 +13,5 @@ chown -R $SYSTEM_USER:$SYSTEM_USER \
 #su -c "ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.out" $SYSTEM_USER
 #su -c "ln -sf /dev/tty /var/log/apt-cacher-ng/apt-cacher.err" $SYSTEM_USER
 
-#tail -F /var/log/apt-cacher-ng/apt-cacher.out > /dev/stdout &
-#tail -F /var/log/apt-cacher-ng/apt-cacher.err > /dev/stderr &
+tail -F /var/log/apt-cacher-ng/apt-cacher.out > /dev/stdout &
+tail -F /var/log/apt-cacher-ng/apt-cacher.err > /dev/stderr &
