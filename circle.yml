@@ -11,4 +11,5 @@ dependencies:
     - mkdir -p ~/docker; docker save stefaniuk/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - echo "TODO"
+    - docker run --detach --name=apt-cacher-ng stefaniuk/apt-cacher-ng; sleep 10
+    - docker ps | grep "stefaniuk/apt-cacher-ng"

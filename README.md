@@ -8,7 +8,4 @@ Docker Apt-Cacher NG
 Todo
 ----
 
-- Print log messages to the standard output
-- Test content of the cache directory
-- Trigger automated test
 - Update README.md file
