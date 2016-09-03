@@ -11,5 +11,5 @@ dependencies:
     - mkdir -p ~/docker; docker save stefaniuk/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - docker run --detach --name=apt-cacher-ng stefaniuk/apt-cacher-ng; sleep 10
+    - docker run --interactive --tty --detach --name=apt-cacher-ng stefaniuk/apt-cacher-ng; sleep 10
     - docker logs apt-cacher-ng | grep "Listening to incoming connections"
