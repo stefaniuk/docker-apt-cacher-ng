@@ -12,4 +12,4 @@ dependencies:
 test:
   override:
     - docker run --detach --name=apt-cacher-ng stefaniuk/apt-cacher-ng; sleep 10
-    - docker ps | grep "stefaniuk/apt-cacher-ng"
+    - docker logs apt-cacher-ng | grep "Listening to incoming connections"

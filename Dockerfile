@@ -1,4 +1,4 @@
-FROM stefaniuk/ubuntu:16.04-20160901
+FROM stefaniuk/ubuntu:16.04-20160903
 MAINTAINER daniel.stefaniuk@gmail.com
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
@@ -26,3 +26,16 @@ EXPOSE 3142
 
 COPY assets/sbin/bootstrap.sh /sbin/bootstrap.sh
 CMD [ "apt-cacher-ng", "-c", "/etc/apt-cacher-ng" ]
+
+### METADATA ###################################################################
+
+ARG VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VCS_URL
+LABEL \
+    version=$VERSION \
+    build-date=$BUILD_DATE \
+    vcs-ref=$VCS_REF \
+    vcs-url=$VCS_URL \
+    license="MIT"
