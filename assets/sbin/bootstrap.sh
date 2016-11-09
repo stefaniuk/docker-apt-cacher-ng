@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 mkdir -p /etc/apt-cacher-ng
 chown -R root:root /etc/apt-cacher-ng

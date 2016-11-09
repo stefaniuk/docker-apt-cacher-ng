@@ -10,7 +10,7 @@ Installation
 
 Builds of the image are available on [Docker Hub](https://hub.docker.com/r/stefaniuk/apt-cacher-ng/).
 
-    docker pull stefaniuk/apt-cacher-ng:latest
+    docker pull stefaniuk/apt-cacher-ng
 
 Alternatively you can build the image yourself.
 
