@@ -1,5 +1,5 @@
-FROM stefaniuk/ubuntu:16.04-20161109
-MAINTAINER daniel.stefaniuk@gmail.com
+FROM stefaniuk/ubuntu:16.04-20170320
+
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
 ARG APT_PROXY
