@@ -1,10 +1,5 @@
-ifdef GITHUB_ACCOUNT
-	OWNER := $(GITHUB_ACCOUNT)
-else
-	OWNER := $(USER)
-endif
 NAME := $(subst docker-,,$(shell basename $(shell dirname $(realpath  $(lastword $(MAKEFILE_LIST))))))
-IMAGE :=  $(OWNER)/$(NAME)
+IMAGE :=  codeworksio/$(NAME)
 
 all: help
 
@@ -12,7 +7,7 @@ help:
 	echo
 	echo "Usage:"
 	echo
-	echo "    make build|create|start|stop|log|test|bash|clean|remove|push [APT_PROXY|APT_PROXY_SSL=ip:port]"
+	echo "    make build|start|stop|log|test|bash|clean|remove|push [APT_PROXY|APT_PROXY_SSL=ip:port]"
 	echo
 
 build:
@@ -26,20 +21,17 @@ build:
 		--tag $(IMAGE):$(shell cat VERSION) \
 		--rm .
 	docker tag $(IMAGE):$(shell cat VERSION) $(IMAGE):latest
-	docker rmi --force $$(docker images | grep "<none>" | awk '{print $$3}')
+	docker rmi --force $$(docker images | grep "<none>" | awk '{ print $$3 }') 2> /dev/null ||:
 
-create:
+start:
 	docker stop $(IMAGE) > /dev/null 2>&1 ||:
 	docker rm $(IMAGE) > /dev/null 2>&1 ||:
-	docker create --interactive --tty \
+	docker run --detach --interactive --tty \
 		--name $(NAME) \
 		--hostname $(NAME) \
 		--volume $(shell pwd)/data:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
 		$(IMAGE) \
-
-start:
-	docker start $(NAME)
 
 stop:
 	docker stop $(NAME)
@@ -49,7 +41,7 @@ log:
 
 test:
 	docker exec --interactive --tty \
-		--user "default" \
+		--user "ubuntu" \
 		$(NAME) \
 		ps auxw
 
@@ -69,6 +61,6 @@ remove: clean
 push:
 	docker push $(IMAGE):$(shell cat VERSION)
 	docker push $(IMAGE):latest
-	curl --request POST "https://hooks.microbadger.com/images/stefaniuk/apt-cacher-ng/qyb5pFGyXtt6cHPYc-6ZMGf2jVQ="
+	curl --request POST "https://hooks.microbadger.com/images/$(IMAGE)/?"
 
 .SILENT:

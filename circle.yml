@@ -7,9 +7,9 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build --tag stefaniuk/apt-cacher-ng .
-    - mkdir -p ~/docker; docker save stefaniuk/apt-cacher-ng > ~/docker/image.tar
+    - docker build --tag codeworksio/apt-cacher-ng .
+    - mkdir -p ~/docker; docker save codeworksio/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - docker run --interactive --tty --detach --name=apt-cacher-ng stefaniuk/apt-cacher-ng; sleep 10
+    - docker run --interactive --tty --detach --name=apt-cacher-ng codeworksio/apt-cacher-ng; sleep 10
     - docker logs apt-cacher-ng | grep "Listening to incoming connections"

@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/stefaniuk/docker-apt-cacher-ng.svg?style=shield "CircleCI")](https://circleci.com/gh/stefaniuk/docker-apt-cacher-ng)&nbsp;[![Size](https://images.microbadger.com/badges/image/stefaniuk/apt-cacher-ng.svg)](http://microbadger.com/images/stefaniuk/apt-cacher-ng)&nbsp;[![Version](https://images.microbadger.com/badges/version/stefaniuk/apt-cacher-ng.svg)](http://microbadger.com/images/stefaniuk/apt-cacher-ng)&nbsp;[![Commit](https://images.microbadger.com/badges/commit/stefaniuk/apt-cacher-ng.svg)](http://microbadger.com/images/stefaniuk/apt-cacher-ng)&nbsp;[![Docker Hub](https://img.shields.io/docker/pulls/stefaniuk/apt-cacher-ng.svg)](https://hub.docker.com/r/stefaniuk/apt-cacher-ng/)
+[![Circle CI](https://circleci.com/gh/codeworksio/docker-apt-cacher-ng.svg?style=shield "CircleCI")](https://circleci.com/gh/codeworksio/docker-apt-cacher-ng)&nbsp;[![Size](https://images.microbadger.com/badges/image/codeworksio/apt-cacher-ng.svg)](http://microbadger.com/images/codeworksio/apt-cacher-ng)&nbsp;[![Version](https://images.microbadger.com/badges/version/codeworksio/apt-cacher-ng.svg)](http://microbadger.com/images/codeworksio/apt-cacher-ng)&nbsp;[![Commit](https://images.microbadger.com/badges/commit/codeworksio/apt-cacher-ng.svg)](http://microbadger.com/images/codeworksio/apt-cacher-ng)&nbsp;[![Docker Hub](https://img.shields.io/docker/pulls/codeworksio/apt-cacher-ng.svg)](https://hub.docker.com/r/codeworksio/apt-cacher-ng/)
 
 Docker Apt-Cacher NG
 ====================
@@ -8,14 +8,14 @@ Set up a repository cache on your network so that once a Linux package is downlo
 Installation
 ------------
 
-Builds of the image are available on [Docker Hub](https://hub.docker.com/r/stefaniuk/apt-cacher-ng/).
+Builds of the image are available on [Docker Hub](https://hub.docker.com/r/codeworksio/apt-cacher-ng/).
 
-    docker pull stefaniuk/apt-cacher-ng
+    docker pull codeworksio/apt-cacher-ng
 
 Alternatively you can build the image yourself.
 
-    docker build --tag stefaniuk/apt-cacher-ng \
-        github.com/stefaniuk/docker-apt-cacher-ng
+    docker build --tag codeworksio/apt-cacher-ng \
+        github.com/codeworksio/docker-apt-cacher-ng
 
 Quickstart
 ----------
@@ -26,7 +26,7 @@ Start container using:
         --name apt-cacher-ng \
         --hostname apt-cacher-ng \
         --publish 3142:3142 \
-        stefaniuk/apt-cacher-ng
+        codeworksio/apt-cacher-ng
 
 See
 ---
