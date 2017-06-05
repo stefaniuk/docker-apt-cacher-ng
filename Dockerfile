@@ -1,10 +1,10 @@
-FROM codeworksio/ubuntu:latest
+FROM codeworksio/ubuntu:20170605
 
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
 ARG APT_PROXY
 ARG APT_PROXY_SSL
-ENV APT_CACHER_NG_VERSION="0.9.1"
+ENV APT_CACHER_NG_VERSION="0.9"
 
 RUN set -ex \
     \
@@ -22,11 +22,11 @@ RUN set -ex \
     && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /var/cache/apt/* \
     && rm -f /etc/apt/apt.conf.d/00proxy
 
+COPY assets/sbin/bootstrap.sh /sbin/bootstrap.sh
+
 WORKDIR /var/cache/apt-cacher-ng
 VOLUME [ "/var/cache/apt-cacher-ng" ]
 EXPOSE 3142
-
-COPY assets/sbin/bootstrap.sh /sbin/bootstrap.sh
 CMD [ "apt-cacher-ng", "-c", "/etc/apt-cacher-ng" ]
 
 ### METADATA ###################################################################
