@@ -31,4 +31,4 @@ Start container using:
 See
 ---
 
-- [Apt-Cacher NG](https://www.unix-ag.uni-kl.de/~bloch/acng/)
+* [Apt-Cacher NG](https://www.unix-ag.uni-kl.de/~bloch/acng/)
