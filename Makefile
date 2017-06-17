@@ -27,10 +27,10 @@ build:
 start:
 	docker stop $(IMAGE) > /dev/null 2>&1 ||:
 	docker rm $(IMAGE) > /dev/null 2>&1 ||:
-	docker run --detach --interactive --tty \
+	docker run --detach --interactive --tty --restart always \
 		--name $(NAME) \
 		--hostname $(NAME) \
-		--volume $(shell pwd)/data/var/cache/apt-cacher-ng:/var/cache/apt-cacher-ng \
+		--volume $(shell pwd)/mounts/var/cache/apt-cacher-ng:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
 		$(IMAGE) \
 
