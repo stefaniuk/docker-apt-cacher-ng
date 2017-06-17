@@ -30,7 +30,7 @@ start:
 	docker run --detach --interactive --tty \
 		--name $(NAME) \
 		--hostname $(NAME) \
-		--volume $(shell pwd)/data:/var/cache/apt-cacher-ng \
+		--volume $(shell pwd)/data/var/cache/apt-cacher-ng:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
 		$(IMAGE) \
 

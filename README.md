@@ -28,6 +28,13 @@ Start container using:
         --publish 3142:3142 \
         codeworksio/apt-cacher-ng
 
+Usage
+-----
+
+After starting up an instance of the Apt-Cacher NG server we can build other containers with the following command
+
+    make build APT_PROXY=192.168.xxx.xxx:3142
+
 See
 ---
 
