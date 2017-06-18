@@ -1,4 +1,4 @@
-FROM codeworksio/ubuntu:16.04-20170615
+FROM codeworksio/ubuntu:16.04-20170618
 
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
@@ -22,6 +22,8 @@ RUN set -ex \
     \
     && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /var/cache/apt/* \
     && rm -f /etc/apt/apt.conf.d/00proxy
+
+COPY assets/ /
 
 WORKDIR /var/cache/apt-cacher-ng
 VOLUME [ "/var/cache/apt-cacher-ng" ]
