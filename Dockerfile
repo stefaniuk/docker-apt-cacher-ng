@@ -1,4 +1,4 @@
-FROM codeworksio/ubuntu:16.04-20170618
+FROM codeworksio/ubuntu:16.04-20170619
 
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
