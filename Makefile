@@ -30,6 +30,7 @@ start:
 	docker run --detach --interactive --tty --restart always \
 		--name $(NAME) \
 		--hostname $(NAME) \
+		--env "INIT_DEBUG=true" \
 		--volume $(shell pwd)/mounts/var/cache/apt-cacher-ng:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
 		$(IMAGE) \

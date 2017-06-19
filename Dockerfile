@@ -20,6 +20,14 @@ RUN set -ex \
     && echo "http://httpredir.debian.org/debian/" > /etc/apt-cacher-ng/backends_debian \
     && echo "http://archive.ubuntu.com/ubuntu/" > /etc/apt-cacher-ng/backends_ubuntu \
     \
+    && mkdir -p \
+        /var/cache/apt-cacher-ng \
+        /var/log/apt-cacher-ng \
+    && chown -R $SYSTEM_USER:$SYSTEM_USER \
+        /var/cache/apt-cacher-ng \
+        /var/log/apt-cacher-ng \
+    && chmod 644 /etc/apt-cacher-ng/* \
+    \
     && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /var/cache/apt/* \
     && rm -f /etc/apt/apt.conf.d/00proxy
 
