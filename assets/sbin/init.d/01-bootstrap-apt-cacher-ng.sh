@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+rm -rf /var/log/apt-cacher-ng
 mkdir -p \
     /var/cache/apt-cacher-ng \
     /var/log/apt-cacher-ng
