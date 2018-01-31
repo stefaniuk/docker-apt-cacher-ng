@@ -11,5 +11,5 @@ dependencies:
     - mkdir -p ~/docker; docker save codeworksio/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - docker run --interactive --tty --detach --name=apt-cacher-ng codeworksio/apt-cacher-ng; sleep 10
+    - docker run --detach --interactive --tty --name apt-cacher-ng codeworksio/apt-cacher-ng; sleep 10
     - docker logs apt-cacher-ng | grep "Listening to incoming connections"
