@@ -1,10 +1,10 @@
-FROM codeworksio/ubuntu:16.04-20180120
+FROM codeworksio/ubuntu:16.04-20180203
 
 # SEE: https://docs.docker.com/engine/examples/apt-cacher-ng/
 
 ARG APT_PROXY
 ARG APT_PROXY_SSL
-ENV APT_CACHER_NG_VERSION="0.9"
+ENV APT_CACHER_NG_VERSION="3.1"
 
 RUN set -ex \
     \
