@@ -1,15 +1,9 @@
 machine:
   services:
     - docker
-dependencies:
-  cache_directories:
-    - "~/docker"
-  override:
-    - docker info
-    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build --tag codeworksio/apt-cacher-ng .
-    - mkdir -p ~/docker; docker save codeworksio/apt-cacher-ng > ~/docker/image.tar
 test:
   override:
-    - docker run --detach --interactive --tty --name apt-cacher-ng codeworksio/apt-cacher-ng; sleep 10
-    - docker logs apt-cacher-ng | grep "Listening to incoming connections"
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - make build
+    - make test
+    - make push

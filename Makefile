@@ -42,10 +42,9 @@ log:
 	docker logs --follow $(NAME)
 
 test:
-	docker exec --interactive --tty \
-		--user ubuntu \
-		$(NAME) \
-		ps auxw
+	docker run --detach --interactive --tty --name apt-cacher-ng codeworksio/apt-cacher-ng
+	sleep 10
+	docker logs apt-cacher-ng | grep "Listening to incoming connections"
 
 bash:
 	docker exec --interactive --tty \
