@@ -26,13 +26,13 @@ build:
 	docker rmi --force $$(docker images | grep "<none>" | awk '{ print $$3 }') 2> /dev/null ||:
 
 start:
-	docker run --detach --interactive --tty --restart always \
+	docker run --detach --interactive --tty \
 		--name $(NAME) \
 		--hostname $(NAME) \
 		--env "INIT_DEBUG=true" \
 		--volume $(shell pwd)/mounts/var/cache/apt-cacher-ng:/var/cache/apt-cacher-ng \
 		--publish 3142:3142 \
-		$(IMAGE) \
+		$(IMAGE)
 
 stop:
 	docker stop $(NAME) > /dev/null 2>&1 ||:
