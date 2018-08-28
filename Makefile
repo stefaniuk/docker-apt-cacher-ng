@@ -36,7 +36,7 @@ start:
 
 stop:
 	docker stop $(NAME) > /dev/null 2>&1 ||:
-	docker rm $(NAME) > /dev/null 2>&1 ||:
+	docker rm --volumes $(NAME) > /dev/null 2>&1 ||:
 
 log:
 	docker logs --follow $(NAME)
@@ -62,4 +62,4 @@ push:
 	sleep 10
 	curl --request POST "https://hooks.microbadger.com/images/$(IMAGE)/MeSOunWnEO-cbDU6aYdPkl1PVqs="
 
-.SILENT:
+.SILENT: help
